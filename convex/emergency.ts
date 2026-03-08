@@ -1,4 +1,5 @@
 import { query, mutation } from "./_generated/server";
+import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 
 const EMERGENCY_TRIAGE: Record<string, {
@@ -66,6 +67,9 @@ export const getEmergencyTriage = query({
     homeId: v.optional(v.id("homes")),
   },
   handler: async (ctx, args) => {
+    const userId = await getAuthUserId(ctx);
+    if (!userId) throw new Error("Not authenticated");
+
     const triage = EMERGENCY_TRIAGE[args.emergencyType] ?? EMERGENCY_TRIAGE.other;
 
     let shutoffLocations: Array<{
@@ -102,6 +106,9 @@ export const getEmergencyTriage = query({
 export const getEmergencyContacts = query({
   args: { homeId: v.id("homes") },
   handler: async (ctx, args) => {
+    const userId = await getAuthUserId(ctx);
+    if (!userId) return [];
+
     return await ctx.db
       .query("emergencyContacts")
       .withIndex("by_home", (q) => q.eq("homeId", args.homeId))
@@ -112,6 +119,9 @@ export const getEmergencyContacts = query({
 export const getShutoffLocations = query({
   args: { homeId: v.id("homes") },
   handler: async (ctx, args) => {
+    const userId = await getAuthUserId(ctx);
+    if (!userId) return [];
+
     return await ctx.db
       .query("emergencyContacts")
       .withIndex("by_home_category", (q) =>
