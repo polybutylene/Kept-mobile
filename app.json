@@ -16,7 +16,7 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.kept.home",
+      "bundleIdentifier": "com.keptapp.kept",
       "buildNumber": "1",
       "supportsTablet": true,
       "infoPlist": {
