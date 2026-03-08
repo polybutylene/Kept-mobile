@@ -1,0 +1,68 @@
+{
+  "system_profile": {
+    "system_name": "Tank Water Heater (Electric)",
+    "system_id": "tank_water_heater_electric",
+    "system_number": 10,
+    "system_category": "Plumbing",
+    "typical_lifespan_years": { "min": 8, "max": 12, "national_median": 10 },
+    "weibull_shape": 3.0,
+    "weibull_scale": 11.0,
+    "failure_probability_milestones": {
+      "year_5": "~8%",
+      "year_8": "~27%",
+      "year_10": "~50%",
+      "year_12": "~73%",
+      "year_15": "~93%"
+    },
+    "replacement_cost_range": { "low": 900, "mid": 1400, "high": 2500, "currency": "USD" },
+    "consequential_damage_potential": "Critical",
+    "energy_source": "Electric (240V, 30A dedicated circuit)",
+    "most_common_residential_size": 50
+  },
+  "maintenance_task_ids": [
+    "ewh_flush_tank_sediment",
+    "ewh_test_tp_relief_valve",
+    "ewh_inspect_anode_rod",
+    "ewh_check_electrical_connections",
+    "ewh_visual_leak_inspection",
+    "ewh_verify_thermostat_setting",
+    "ewh_check_expansion_tank",
+    "ewh_check_drip_pan_drain"
+  ],
+  "troubleshooting_symptom_ids": [
+    "ewh_no_hot_water",
+    "ewh_insufficient_hot_water",
+    "ewh_discolored_rusty_water",
+    "ewh_popping_rumbling_noises",
+    "ewh_water_around_base",
+    "ewh_tp_valve_continuous_discharge",
+    "ewh_rotten_egg_smell",
+    "ewh_breaker_keeps_tripping",
+    "ewh_water_too_hot",
+    "ewh_slow_recovery_high_bills"
+  ],
+  "climate_modifier_ids": [
+    "gulf_coast_subtropical",
+    "coastal_northeast",
+    "upper_midwest_great_lakes",
+    "desert_southwest",
+    "pacific_northwest",
+    "mountain_west",
+    "deep_south_piedmont",
+    "mid_atlantic_temperate"
+  ],
+  "cross_references": [
+    "tank_water_heater_gas",
+    "tankless_water_heater",
+    "water_supply_lines_interior",
+    "water_softener",
+    "whole_home_surge_protector"
+  ],
+  "metadata": {
+    "version": "1.0",
+    "total_maintenance_tasks": 8,
+    "total_preventative_care_guidelines": 6,
+    "total_troubleshooting_guides": 10,
+    "total_climate_modifiers": 8
+  }
+}
